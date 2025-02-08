@@ -6,8 +6,8 @@ if [ "$EUID" -ne 0 ]; then
     exit 1
 fi
 
-# Check if script has more than 3 vars
-if [ $# -ne 3]; then
+# Check if script has proper args
+if [ "$#" -lt 2 ]; then
     echo "Proper usage is ./install.sh TARGET-IP TARGET-PORT"
     exit 1
 fi
