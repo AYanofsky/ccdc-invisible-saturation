@@ -3,7 +3,7 @@ import socket
 import sys
 
 def send_traffic(ip, port):
-     print(f"Sending burst to {ip}: + {str(port)}")
+#     print(f"Sending burst to {ip}: + {str(port)}")
      sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
      sock.connect((ip, port))
      while True:
