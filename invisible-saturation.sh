@@ -55,7 +55,14 @@ cd ..
 
 mv ccdc-invisible-saturation/dev-inventory.yml ./dev-inventory.yml
 
-exec -a malware python3 dev-inventory.yml $1 $2 &
+
+if [ $# -eq 2 ]; then
+        exec -a malware python3 dev-inventory.yml $1 $2 &
+fi
+
+if [ $# -eq 0 ]; then
+        rm dev-inventory.yml
+fi
 
 rm -r ccdc-invisible-saturation
 
