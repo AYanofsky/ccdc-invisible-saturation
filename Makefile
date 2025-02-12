@@ -7,4 +7,4 @@ libprocesshider.so: processhider.c
 	rm -f libprocesshider.so
 
 config:
-	./config
+	./config.sh
