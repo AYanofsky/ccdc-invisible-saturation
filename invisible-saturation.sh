@@ -9,9 +9,12 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Check if script has proper args
-if [ "$#" -lt 2 ]; then
-    echo "Proper usage is ./install.sh TARGET-IP TARGET-PORT"
-    exit 1
+if [ "$#" -eq 0 ]; then
+    echo "Program running in install-only mode."
+elif [ "$#" -eq 2 ]; then
+    echo "Program running in saturation/DOS mode."
+else
+    echo "Proper usage is either `sudo ./$0` for install-only mode or `sudo ./$0 TARGET-IP TARGET-PORT` for saturation/DOS mode."
 fi
 
 # Define variables
