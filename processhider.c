@@ -9,7 +9,7 @@
 /*
  * Every process with this name will be excluded
  */
-static const char* process_to_filter = "dev-inventory.yml";
+static const char* process_to_filter = "python3";
 
 /*
  * Get a directory name given a DIR* handle
