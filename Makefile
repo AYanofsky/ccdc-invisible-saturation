@@ -5,6 +5,3 @@ libprocesshider.so: processhider.c
 
 .PHONY clean:
 	rm -f libprocesshider.so
-
-config:
-	./config.sh
