@@ -5,6 +5,3 @@ libprocesshider.so: processhider.c
 
 .PHONY clean:
 	rm -f libprocesshider.so
-
-.PHONY config:
-	@echo "Enter the name of the process you want to hide (e.g. python): "\ read INPUT; \ @echo "Configured file to replace $$(INPUT); \sed "s/REPLACEME/$$(INPUT)
